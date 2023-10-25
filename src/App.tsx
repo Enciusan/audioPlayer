@@ -22,18 +22,18 @@ function App() {
       <TransactionsToastList successfulToastLifetime={1000} customToastClassName="absolute" />
       <NotificationModal />
       <SignTransactionsModals className="custom-class-for-modals" />
-      <div className="background bg-no-repeat bg-cover">
-        <div className="bg-gradient-to-b from-gray-900/70 via-[#300171]/50 to-slate-900/70">
-          <div className="flex flex-col min-h-screen text-white">
-            <Navbar />
-            <Content>
-              <Routes>
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/wallet" element={<Wallet />}></Route>
-              </Routes>
-            </Content>
-            <Footer />
-          </div>
+      <div className="">
+        <div className="backgroundCircle"></div>
+        <div className="backgroundCircle1"></div>
+        <div className="flex flex-col min-h-[100svh] text-white backdrop-blur-xl">
+          <Navbar />
+          <Content>
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/wallet" element={<Wallet />}></Route>
+            </Routes>
+          </Content>
+          <Footer />
         </div>
       </div>
     </DappProvider>

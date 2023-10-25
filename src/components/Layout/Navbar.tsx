@@ -14,12 +14,10 @@ export const Navbar: React.FC = () => {
     <nav className="text-white text-xl">
       <div className="flex flex-row justify-around items-center h-32">
         <Link to={"/"} className="flex flex-row">
-          <div className="flex flex-col font-mono">
+          <div className="flex flex-col font-syne font-bold">
             <div className="flex flex-row">
-              <span className="text-xl text-center">ITH&nbsp;</span>
-              <span className="text-xl font-semibold text-end text-[hsl(280,100%,60%)] font-mono">UI</span>
+              <span className="text-xl text-center">Music.ITH</span>
             </div>
-            <span className="text-3xl font-bold text-[hsl(200,100%,60%)]">TEMPLATE</span>
           </div>
         </Link>
         <div className="flex gap-5">
