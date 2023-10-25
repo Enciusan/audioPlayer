@@ -1,8 +1,8 @@
-import React from "react";
-import { Disc3, FileAudio, FolderPlus, Home, LogIn, LogOut } from "lucide-react";
+import React, { Fragment } from "react";
+import { Disc3, FileAudio, FolderPlus, Heart, Home, LogIn, LogOut } from "lucide-react";
 import { Button } from "../../libComponents/Button";
 import { NavLink } from "react-router-dom";
-import { useGetAccountInfo, useGetIsLoggedIn } from "@multiversx/sdk-dapp/hooks";
+import { useGetIsLoggedIn } from "@multiversx/sdk-dapp/hooks";
 import { logout } from "@multiversx/sdk-dapp/utils";
 
 const menuItems = [
@@ -34,47 +34,45 @@ const menuItems = [
 
 export const Footer: React.FC = () => {
   const isLoggedIn = useGetIsLoggedIn();
+
   return (
-    <footer className="h-20 flex flex-row justify-around items-center text-lg shadow-teal-400 rounded-t-lg bg-[#1e1e1e]/30 backdrop-blur-lg">
-      {menuItems.map((item) => {
-        return (
-          <NavLink
-            to={item.route}
-            className={({ isActive }) => (isActive ? "bg-teal-600 rounded-full py-3" : "")}
-            key={item.id}>
-            {/*{!item.needLogin ? (*/}
-            <Button className="flex flex-col bg-transparent">
-              <i className="w-6 h-6">{item.icon}</i>
-              {item.name}
-            </Button>
-          </NavLink>
-        );
-      })}
-      {isLoggedIn ? (
-        <Button className="flex flex-col bg-transparent" onClick={() => logout("/")}>
-          <i className="w-6 h-6">
-            <LogOut className="w-6 h-6" />
-          </i>
-          Log out
-        </Button>
-      ) : (
-        <NavLink to="/unlock" className={({ isActive }) => (isActive ? "bg-teal-500 rounded-full py-3" : "")}>
-          <Button className="flex flex-col bg-transparent">
+    <footer className="h-16 flex flex-row justify-around items-center text-lg shadow-teal-400 rounded-t-lg bg-[#1e1e1e]/30 xl:bg-transparent backdrop-blur-lg">
+      <div className="xl:hidden flex justify-around w-full">
+        {menuItems.map((item) => {
+          return (
+            <NavLink to={item.route} key={item.id}>
+              {({ isActive }) => (
+                <Button className="flex flex-col bg-transparent">
+                  <i className={isActive ? "text-teal-500 w-6 h-6" : "text-muted w-6 h-6"}>{item.icon}</i>
+                  <p className={isActive ? "text-teal-500" : "text-muted"}>{item.name}</p>
+                </Button>
+              )}
+            </NavLink>
+          );
+        })}
+        {isLoggedIn ? (
+          <Button className="flex flex-col bg-transparent" onClick={() => logout("/")}>
             <i className="w-6 h-6">
-              <LogIn className="w-6 h-6" />
+              <LogOut />
             </i>
-            Log in
+            <p>Log out</p>
           </Button>
-        </NavLink>
-      )}
-      {/*<a*/}
-      {/*  {...{*/}
-      {/*    target: "_blank",*/}
-      {/*  }}*/}
-      {/*  className="flex items-center font-semibold"*/}
-      {/*  href="https://itheum.com">*/}
-      {/*  Made with <Heart className="mx-1" />*/}
-      {/*</a>*/}
+        ) : (
+          <NavLink to="/unlock">
+            {({ isActive }) => (
+              <Button className="flex flex-col bg-transparent">
+                <i className={isActive ? "text-teal-500 w-6 h-6" : "text-muted w-6 h-6"}>
+                  <LogIn />
+                </i>
+                <p className={isActive ? "text-teal-500" : "text-muted"}>Log in</p>
+              </Button>
+            )}
+          </NavLink>
+        )}
+      </div>
+      <a className="flex items-center font-semibold xl:flex hidden">
+        Made with <Heart className="mx-1" /> by Enciu
+      </a>
     </footer>
   );
 };

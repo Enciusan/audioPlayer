@@ -1,6 +1,6 @@
 .backgroundCircle{
-   @apply absolute top-1/2 left-1/3 -z-10 w-[17svh] h-[17svh] bg-gradient-to-b from-black via-teal-700 to-slate-900/70 animate-spin-slow rounded-full shadow-2xl shadow-teal-300 backdrop-blur;
+   @apply absolute xl:top-[40dvh] top-[43%] xl:left-[45%]  left-1/3 -z-10 w-[17svh] h-[17svh] bg-gradient-to-b from-black via-teal-700 to-slate-900/70 animate-spin-slow rounded-full shadow-2xl shadow-teal-300 backdrop-blur;
 }
 .backgroundCircle1{
-   @apply absolute top-1/2 left-1/3 -z-0 w-[19svh] h-[19svh] bg-[#1b1b1b] rounded-full shadow-2xl shadow-teal-300 backdrop-blur;
+   @apply absolute xl:top-[40dvh] top-[43%] xl:left-[45%] left-1/3 -z-0 w-[19svh] h-[19svh] bg-[#1b1b1b] rounded-full shadow-2xl shadow-teal-300 backdrop-blur;
 }
