@@ -36,15 +36,22 @@ export const Footer: React.FC = () => {
   const isLoggedIn = useGetIsLoggedIn();
 
   return (
-    <footer className="h-16 flex flex-row justify-around items-center text-lg shadow-teal-400 rounded-t-lg bg-[#1e1e1e]/30 xl:bg-transparent backdrop-blur-lg">
+    <footer className="h-16 flex flex-row sticky bottom-0 justify-around items-center text-lg shadow-teal-400 rounded-t-lg bg-[#1e1e1e]/30 xl:bg-transparent backdrop-blur-lg w-full">
       <div className="xl:hidden flex justify-around w-full">
         {menuItems.map((item) => {
           return (
             <NavLink to={item.route} key={item.id}>
               {({ isActive }) => (
                 <Button className="flex flex-col bg-transparent">
-                  <i className={isActive ? "text-teal-500 w-6 h-6" : "text-muted w-6 h-6"}>{item.icon}</i>
-                  <p className={isActive ? "text-teal-500" : "text-muted"}>{item.name}</p>
+                  <i
+                    className={
+                      isActive ? "text-teal-500 w-6 h-6 transition duration-300 -translate-y-2" : "text-muted w-6 h-6"
+                    }>
+                    {item.icon}
+                  </i>
+                  <p className={isActive ? "text-teal-500 transition duration-300 -translate-y-2" : "text-muted"}>
+                    {item.name}
+                  </p>
                 </Button>
               )}
             </NavLink>
